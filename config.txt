@@ -1,0 +1,5 @@
+BUNDLE_NAME=demo
+APP_NAME=DEBUG demo
+APPLICATION_ID=com.example.demo
+PRODUCT_BUNDLE_IDENTIFIER=com.example.demo
+DEVELOPMENT_TEAM=xxxxxxxxxx

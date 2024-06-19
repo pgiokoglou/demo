@@ -41,3 +41,19 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Custom rules
+.dart_tool
+.idea
+*.freezed.dart
+*.g.dart
+*.mocks.dart
+**/*.lock
+analysis_options.yaml
+android/app/build
+config.env
+config.xcconfig
+hooks/scripts/build
+lib/generated
+lib/l10n/missing_translation_keys.txt
+pubspeck.lock

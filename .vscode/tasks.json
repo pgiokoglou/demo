@@ -1,0 +1,11 @@
+{
+	"tasks": [
+		{
+			"command": "cp config.txt config.env && cp config.txt config.xcconfig",
+			"label": "create_config_files",
+			"problemMatcher": [],
+			"type": "shell"
+		}
+	],
+	"version": "2.0.0"
+}

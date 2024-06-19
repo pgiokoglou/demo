@@ -1,0 +1,96 @@
+{
+	"[dart]": {
+		"editor.defaultFormatter": "Dart-Code.dart-code",
+		"editor.selectionHighlight": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": "off"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"dart.analysisExcludedFolders": [
+		"**/*.*.dart"
+	],
+	"dart.automaticCommentSlashes": "tripleSlash",
+	"dart.closingLabels": false,
+	"dart.completeFunctionCalls": true,
+	"dart.doNotFormat": [
+		"**/*.*.dart"
+	],
+	"dart.flutterCreateAndroidLanguage": "kotlin",
+	"dart.flutterCreateIOSLanguage": "swift",
+	"dart.flutterCreateOrganization": "com.gebiom",
+	"dart.flutterGenerateLocalizationsOnSave": "manualIfDirty",
+	"dart.flutterHotReloadOnSave": "all",
+	"dart.hotReloadOnSave": "all",
+	"dart.hotReloadProgress": "statusBar",
+	"dart.lineLength": 150,
+	"dart.normalizeFileCasing": true,
+	"dart.renameFilesWithClasses": "always",
+	"dart.runPubGetOnNestedProjects": "both",
+	"dart.runPubGetOnPubspecChanges": "prompt",
+	"dart.showSkippedTests": false,
+	"debug.internalConsoleOptions": "openOnSessionStart",
+	"debug.openDebug": "openOnDebugBreak",
+	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingQuotes": "always",
+	"editor.autoIndent": "full",
+	"editor.detectIndentation": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"editor.insertSpaces": false,
+	"editor.minimap.autohide": true,
+	"editor.rulers": [
+		120,
+		150
+	],
+	"editor.tabSize": 2,
+	"editor.wordWrapColumn": 150,
+	"explorer.fileNesting.enabled": true,
+	"files.autoSave": "onFocusChange",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"flutterStylizer": {
+		"groupAndSortGetterMethods": false,
+		"groupAndSortVariableTypes": false,
+		"memberOrdering": [
+			"public-static-variables",
+			"private-static-variables",
+			"public-instance-variables",
+			"private-instance-variables",
+			"public-override-variables",
+			"public-constructor",
+			"named-constructors",
+			"public-override-methods",
+			"build-method",
+			"public-other-methods",
+			"private-other-methods",
+		],
+		"processEnumsLikeClasses": true,
+		"sortClassesWithinFile": true,
+		"sortOtherMethods": true
+	},
+	"multiCommand.commands": [
+		{
+			"command": "multiCommand.formatDart",
+			"sequence": [
+				"editor.action.organizeImports",
+				"editor.action.formatDocument",
+				"extension.flutterStylizer",
+				"dart.sortMembers",
+				"workbench.action.files.save",
+				"flutter.hotReload",
+			]
+		},
+		{
+			"command": "multiCommand.formatJson",
+			"sequence": [
+				"json.sort",
+				"workbench.action.files.save",
+			]
+		},
+	]
+}

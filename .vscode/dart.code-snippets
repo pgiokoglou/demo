@@ -1,0 +1,284 @@
+{
+	// Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	//https://code.visualstudio.com/docs/editor/userdefinedsnippets
+	"addPostFrameCallback": {
+		"prefix": "addPostFrameCallback",
+		"body": [
+			"WidgetsBinding.instance.addPostFrameCallback(",
+			"\t  (Duration _) async {",
+			"\t\tfinal PermissionsViewModel viewModel = PropertyChangeProvider.of<${1:viewModel}, String>(context, listen: false)!.value;",
+			"",
+		]
+	},
+	"datadrivengroup": {
+		"prefix": "datadrivengroup",
+		"body": [
+			"group(\"${1:groupName}\", () {",
+			" setUpAll(() async {});",
+			"",
+			"\tsetUp(() async {});",
+			"",
+			"\tfinal List<TestData> testData = <TestData>[",
+			"\t\tTestData(",
+			"\t\t  name: \"WHEN ${2:action} , EXPECT ${3:reaction} \",",
+			"\t\t  input: ${4:input} ,",
+			"\t\t  expectedOutput: ${5:expectedOutput} ,",
+			"\t\t),",
+			"\t];",
+			"\t",
+			"\tfor( final TestData data in testData){",
+			"\t  test(data.name, () async {",
+			"\t\t// ignore: deprecated_member_use",
+			"\t\tif (data.expectedOutput.runtimeType == Throws) {",
+			"\t\t$6",
+			"\t\t} else {",
+			"\t\t$7",
+			"\t\t}",
+			"\t  },);",
+			"\t}",
+			"\t",
+			"\t",
+			"\ttearDown(() async {});",
+			"",
+			"\ttearDownAll(() async {});",
+			"  },);"
+		],
+		"description": "Group Scaffolding for data-driven testing"
+	},
+	"testcase": {
+		"prefix": "testcase",
+		"body": [
+			"test(",
+			"\t\"WHEN ${1:action}, EXPECT ${2:reaction}\",",
+			"\t() async {},",
+			"  );"
+		],
+		"description": "A Dart Test case"
+	},
+	"testcasewidget": {
+		"prefix": "testcasewidget",
+		"body": [
+			"testWidgets(",
+			"\t\"WHEN ${1:action}, EXPECT ${2:reaction}\",",
+			"\t(WidgetTester tester) async {",
+			"\t  await pumpWidget(tester);",
+			"\t},",
+			"\tvariant: mobile,",
+			"  );"
+		],
+		"description": "A Flutter widget Test case"
+	},
+	"unittest": {
+		"prefix": "unittest",
+		"body": [
+			"${RELATIVE_FILEPATH/(.*)\\/(.*_testing)\\/(.*)_test(.*)$/import \"package:demo\\/$3$4\";/}",
+			"import \"package:test/test.dart\";",
+			"",
+			"void main() {",
+			"  late ${2:type} viewModel;",
+			"",
+			"  setUpAll(() async {});",
+			"",
+			"  setUp(() async {",
+			"\tviewModel = ${2:type}();",
+			"  });",
+			"\t",
+			"  test(",
+			"\t\"WHEN ${3:action}, EXPECT ${4:reaction}\", ",
+			"\t() async{},",
+			"\t);",
+			"",
+			"  tearDown(() async {});",
+			"   ",
+			"  tearDownAll(() async {});",
+			"}",
+			""
+		],
+		"description": "Dart Unit test scaffolding"
+	},
+	"widgettest": {
+		"prefix": "widgettest",
+		"body": [
+			"import \"package:demo/locators.dart\";",
+			"import \"package:demo/models/consumer/consumer.dart\";",
+			"import \"package:demo/models/session/session_details.dart\";",
+			"${RELATIVE_FILEPATH/(.*)\\/(.*_testing)\\/(.*)_test(.*)$/import \"package:demo\\/$3$4\";/}",
+			"import \"package:flutter/widgets.dart\";",
+			"import \"package:flutter_test/flutter_test.dart\";",
+			"",
+			"import \"../../test_helpers/pumpers.dart\";",
+			"import \"../../test_helpers/setup.dart\";",
+			"",
+			"void main() {",
+			"\tlate ${1:viewModel} viewModel; //if needed",
+			"  ",
+			"\t//if needed",
+			"\tFuture<void> pumpWidget(",
+			"\t  WidgetTester tester, ",
+			"\t  {",
+			"\t  Consumer? bucketConsumer,",
+			"\tSessionDetails? bucketSessionDetails,",
+			"\t  Locale? locale,",
+			"\t}) async {",
+			"\t  await tester.pumpView(",
+			"\t\t  view: ${2:body}(),",
+			"\t\t  bucketConsumer: bucketConsumer,",
+			"\t\tbucketSessionDetails: bucketSessionDetails,",
+			"\t\t  locale: locale,",
+			"\t  );",
+			"\t  ",
+			"\t  await tester.pump();",
+			"\t}",
+			"\t",
+			"\t//if needed",
+			"\tFuture<void> pumpWidget(",
+			"\t  WidgetTester tester, ",
+			"\t  {",
+			"\t  Consumer? bucketConsumer,",
+			"\tSessionDetails? bucketSessionDetails,",
+			"\t  Locale? locale,",
+			"\t}) async {",
+			"\t  await  tester.pumpPage(",
+			"\t\t  page: ${2:body}(),",
+			"\t\t  bucketConsumer: bucketConsumer,",
+			"\t\tbucketSessionDetails: bucketSessionDetails,",
+			"\t\t  locale: locale,",
+			"\t\t",
+			"\t  );",
+			"\t",
+			"\t  await tester.pump();",
+			"\t}",
+			"\t",
+			"\tsetUpAll(() async {});",
+			"\t",
+			"\tsetUp(() async { ",
+			"\t   setupLocators();",
+			"\t});",
+			"\t",
+			"\ttestWidgets(",
+			"\t  \"The page has the basic structure\",",
+			"\t  (WidgetTester tester) async {",
+			"\t\t await pumpWidget(tester);",
+			"\t  },",
+			"\t  variant: mobile,",
+			"\t);\t",
+			"\t\t ",
+			"\ttestWidgets(",
+			"\t  \"WHEN ${3:action}, EXPECT ${4:reaction}\",",
+			"\t  (WidgetTester tester) async {",
+			"\t\t await pumpWidget(tester);",
+			"\t  },",
+			"\t  variant: mobile,",
+			"\t);",
+			"\t",
+			"\ttearDown(() async => Locators.unsetLocators());",
+			"\t",
+			"\ttearDownAll(() async {});",
+			"  ",
+			"}",
+			"",
+			""
+		],
+		"description": "Flutter Widget test scaffolding"
+	},
+	"stful": {
+		"prefix": "stful",
+		"body": [
+			"import \"package:flutter/widgets.dart\";",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} extends StatefulWidget {",
+			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}({Key? key}) : super(key: key ?? Key((${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}).toString()));",
+			"",
+			"  @override",
+			"  State<${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}> createState() => _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}State();",
+			"}",
+			"",
+			"class _${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}State extends State<${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}> {",
+			"  @override",
+			"  Widget build(BuildContext context) => Container();",
+			"}",
+			""
+		],
+		"description": "stateful widget"
+	},
+	"stless": {
+		"prefix": "stless",
+		"body": [
+			"import \"package:flutter/widgets.dart\";",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} extends StatelessWidget {",
+			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}({Key? key}) : super(key: key ?? Key((${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}).toString()));",
+			"  ",
+			"  @override",
+			"  Widget build(BuildContext context) => Container();",
+			"}",
+			""
+		],
+		"description": "stateless widget"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} {}"
+		],
+		"description": "creates a new data class"
+	},
+	"constructorDart": {
+		"prefix": "constructorDart",
+		"body": [
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}();"
+		],
+		"description": "creates a nameless Dart constructor"
+	},
+	"constructorFlutter": {
+		"prefix": "constructorFlutter",
+		"body": [
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}({Key? key}) : super(key: key ?? Key((${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}).toString()));"
+		],
+		"description": "creates a nameless widget constructor"
+	},
+	"robot": {
+		"prefix": "robot",
+		"body": [
+			"import \"package:flutter_test/flutter_test.dart\";",
+			"",
+			"import \"../../../test_helpers/converters.dart\";",
+			"import \"basic_robot.dart\";",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} extends BasicRobot {",
+			"  ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}(super.tester, super.timelineHelper,);",
+			"}",
+			""
+		],
+		"description": "Creates a robot for integration testing"
+	},
+	"settergetter": {
+		"prefix": "settergetter",
+		"body": [
+			"${1:type} _${2:name} = \\$value\\$;",
+			"",
+			"${1:type} get ${2:name} => _${2:name};",
+			"",
+			"set ${2:name}(${1:type} ${2:name}) {",
+			"  if (_${2:name} == ${2:name}) {",
+			"\t return;",
+			"  }",
+			"",
+			"  _${2:name} = ${2:name};",
+			"}"
+		],
+		"description": "Creates boxed setter and a getter"
+	}
+}

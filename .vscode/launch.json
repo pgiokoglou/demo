@@ -1,0 +1,129 @@
+{
+	"configurations": [
+		{
+			"name": "main",
+			"preLaunchTask": "create_config_files",
+			"presentation": {
+				"group": "Run",
+				"hidden": false,
+				"order": 2
+			},
+			"program": "lib/main.dart",
+			"request": "launch",
+			"toolArgs": [
+				"--dart-define-from-file",
+				"config.env"
+			],
+			"type": "dart"
+		},
+		{
+			"codeLens": {
+				"for": [
+					"run-test",
+					"run-test-file",
+					"debug-test",
+					"debug-test-file"
+				],
+				"path": "test/unit_testing/unit_test.dart"
+			},
+			"name": "unit_test",
+			"preLaunchTask": "create_config_files",
+			"presentation": {
+				"group": "Test",
+				"hidden": false,
+				"order": 100
+			},
+			"program": "test/unit_testing/unit_test.dart",
+			"request": "launch",
+			"runTestsOnDevice": false,
+			"templateFor": "test",
+			"toolArgs": [
+				"--dart-define-from-file",
+				"config.env"
+			],
+			"type": "dart"
+		},
+		{
+			"codeLens": {
+				"for": [
+					"run-test",
+					"run-test-file",
+					"debug-test",
+					"debug-test-file"
+				],
+				"path": "test/widget_testing/widget_test.dart"
+			},
+			"name": "widget_test",
+			"preLaunchTask": "create_config_files",
+			"presentation": {
+				"group": "Test",
+				"hidden": false,
+				"order": 101
+			},
+			"program": "test/widget_testing/widget_test.dart",
+			"request": "launch",
+			"runTestsOnDevice": false,
+			"templateFor": "test",
+			"toolArgs": [
+				"--dart-define-from-file",
+				"config.env"
+			],
+			"type": "dart"
+		},
+		{
+			"codeLens": {
+				"for": [
+					"run-test",
+					"run-test-file",
+					"debug-test",
+					"debug-test-file"
+				],
+				"path": "test/integration_testing/integration_testing.dart"
+			},
+			"name": "integration_test",
+			"preLaunchTask": "create_config_files",
+			"presentation": {
+				"group": "Test",
+				"hidden": false,
+				"order": 102
+			},
+			"program": "test/integration_testing/integration_testing.dart",
+			"request": "launch",
+			"runTestsOnDevice": false,
+			"templateFor": "test",
+			"toolArgs": [
+				"--dart-define-from-file",
+				"config.env"
+			],
+			"type": "dart"
+		},
+		{
+			"codeLens": {
+				"for": [
+					"run-test",
+					"run-test-file",
+					"debug-test",
+					"debug-test-file"
+				],
+				"path": "test/main_test.dart"
+			},
+			"name": "main_test",
+			"preLaunchTask": "create_config_files",
+			"presentation": {
+				"group": "Test",
+				"hidden": false,
+				"order": 103
+			},
+			"program": "test/main_test.dart",
+			"request": "launch",
+			"runTestsOnDevice": false,
+			"templateFor": "test",
+			"toolArgs": [
+				"--dart-define-from-file",
+				"config.env"
+			],
+			"type": "dart"
+		}
+	],
+	"version": "0.2.0"
+}
