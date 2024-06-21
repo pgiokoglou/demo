@@ -17,4 +17,8 @@ abstract class ReqresClient {
   @GET(ReqresApi.getUser)
   @Headers(jsonHeader)
   Future<dynamic> getUser(@Path(id) int id);
+
+  @GET(ReqresApi.getUsers)
+  @Headers(jsonHeader)
+  Future<dynamic> getUsers();
 }

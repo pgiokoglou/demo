@@ -4,6 +4,16 @@ import "package:demo/models/user/user.dart";
 import "package:dio/dio.dart";
 
 class UserHelper {
+  static DioException get invalidRequestDioExceptionForGetUser => DioException(
+        response: Response<dynamic>(
+          data: <String, String>{"message": "error message"},
+          statusCode: 422,
+          requestOptions: RequestOptions(path: ReqresApi.getUser),
+        ),
+        requestOptions: RequestOptions(path: ReqresApi.getUser),
+        error: "Http status error [422]",
+      );
+
   static User get validUser => User(
         data: Data(
           id: 1,
@@ -16,15 +26,7 @@ class UserHelper {
 
   static int get validUserId => validUser.data!.id!;
 
-  UserHelper._();
+  static List<User> get validUsers => <User>[validUser];
 
-  static DioException get invalidRequestDioExceptionForGetUser => DioException(
-        response: Response<dynamic>(
-          data: <String, String>{"message": "error message"},
-          statusCode: 422,
-          requestOptions: RequestOptions(path: ReqresApi.getUser),
-        ),
-        requestOptions: RequestOptions(path: ReqresApi.getUser),
-        error: "Http status error [422]",
-      );
+  UserHelper._();
 }

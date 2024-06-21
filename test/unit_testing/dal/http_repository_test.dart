@@ -1,3 +1,4 @@
+import "package:collection/collection.dart";
 import "package:demo/dal/http_repository.dart";
 import "package:dio/dio.dart";
 import "package:mockito/annotations.dart";
@@ -36,6 +37,18 @@ void main() {
       expect(
         () async => repository.getUser(id),
         throwsA(isA<DioException>()),
+      );
+    },
+  );
+
+  test(
+    "WHEN fetching all users, EXPECT to succeed",
+    () async {
+      when(repository.getUsers()).thenAnswer((_) async => UserHelper.validUsers);
+
+      expect(
+        const DeepCollectionEquality().equals(UserHelper.validUsers, await repository.getUsers()),
+        isTrue,
       );
     },
   );
