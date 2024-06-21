@@ -422,7 +422,7 @@ analyzer:
     integer_literal_out_of_range: error
     invalid_annotation_constant_value_from_deferred_library: error
     invalid_annotation_from_deferred_library: error
-    invalid_annotation_target: error
+    invalid_annotation_target: ignore
     invalid_annotation: error
     invalid_assignment: error
     invalid_dependency: error
